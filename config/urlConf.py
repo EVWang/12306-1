@@ -1,6 +1,6 @@
 # coding=utf-8
 import random
-
+import TickerConfig
 import time
 
 urls = {
@@ -23,7 +23,7 @@ urls = {
         "Host": "kyfw.12306.cn",
         "Content-Type": 1,
         "re_try": 10,
-        "re_time": 1,
+        "re_time": 3,
         "s_time": 0.1,
         "is_logger": True,
         "is_json": True,
@@ -36,7 +36,7 @@ urls = {
         "Content-Type": 1,
         "re_try": 10,
         "re_time": 1,
-        "s_time": 0.1,
+        "s_time": 0.5,
         "is_logger": True,
         "is_json": True,
 
@@ -139,7 +139,7 @@ urls = {
         "is_json": False,
     },
     "getDevicesId": {  # 获取用户信息
-        "req_url": "/otn/HttpZF/logdevice?algID=3yxNoRW8BM&hashCode=8EFUGZrjK3cO8VdDugvPxyyiUqMNmKhl6pbW1ftnEVI&FMQw=0&q4f3=zh-CN&VPIf=1&custID=133&VEek=unknown&dzuS=0&yD16=0&EOQP=c227b88b01f5c513710d4b9f16a5ce52&lEnu=2887005765&jp76=52d67b2a5aa5e031084733d5006cc664&hAqN=MacIntel&platform=WEB&ks0Q=d22ca0b81584fbea62237b14bd04c866&TeRS=1013x1920&tOHY=24xx1080x1920&Fvje=i1l1o1s1&q5aJ=-8&wNLf=99115dfb07133750ba677d055874de87&0aew=Mozilla/5.0%20(Macintosh;%20Intel%20Mac%20OS%20X%2010_14_4)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/74.0.3729.131%20Safari/537.36&E3gR=d4c1ccb1725a4a45cc350f16ac26f32b&timestamp={0}",
+        "req_url": "/otn/HttpZF/logdevice",
         "req_type": "get",
         "Referer": "https://kyfw.12306.cn/otn/passport?redirect=/otn/",
         "Host": "kyfw.12306.cn",
@@ -232,7 +232,7 @@ urls = {
         "req_type": "get",
         "Referer": "https://kyfw.12306.cn/otn/leftTicket/init",
         "Host": "kyfw.12306.cn",
-        "re_try": 10,
+        "re_try": 1,
         "re_time": 0.01,
         "s_time": 0.01,
         "is_logger": False,
@@ -244,9 +244,9 @@ urls = {
         "req_type": "post",
         "Referer": "https://kyfw.12306.cn/otn/leftTicket/init",
         "Host": "kyfw.12306.cn",
-        "re_try": 10,
-        "re_time": 0.3,
-        "s_time": 0.1,
+        "re_try": 1,
+        "re_time": 1,
+        "s_time": 1,
         "is_logger": True,
         "is_json": True,
     },
@@ -408,6 +408,19 @@ urls = {
         "is_logger": False,
         "is_json": True,
     },
+    "ServerChan": {  # Server酱 push通知
+        "req_url": "/",
+        "req_type": "get",
+        "Referer": "",
+        "Content-Type": 1,
+        "Host": "sc.ftqq.com",
+        "re_try": 10,
+        "re_time": 0.01,
+        "s_time": 0.1,
+        "is_logger": True,
+        "is_json": True,
+    },
+
     "cdn_host": {
         "req_url": "http://ping.chinaz.com/kyfw.12306.cn",
         "req_type": "post"
@@ -504,4 +517,86 @@ urls = {
     },
 
 
+
+    # 候补订单接口
+
+    "chechFace": {  # 人脸识别
+        "req_url": "/otn/afterNate/chechFace",
+        "req_type": "post",
+        "Referer": "https://kyfw.12306.cn/otn/leftTicket/init",
+        "Host": "kyfw.12306.cn",
+        "re_try": 10,
+        "re_time": 0.01,
+        "s_time": 0.01,
+        "is_logger": True,
+        "is_json": True,
+    },
+    "getSuccessRate": {  # 成功信息
+        "req_url": "/otn/afterNate/getSuccessRate",
+        "req_type": "post",
+        "Referer": "https://kyfw.12306.cn/otn/leftTicket/init",
+        "Host": "kyfw.12306.cn",
+        "re_try": 10,
+        "re_time": 0.01,
+        "s_time": 0.01,
+        "is_logger": True,
+        "is_json": True,
+    },
+    "SubmitOrderRequestRsp": {  # 提交候补订单准备
+        "req_url": "/otn/afterNate/submitOrderRequest",
+        "req_type": "post",
+        "Referer": "https://kyfw.12306.cn/otn/leftTicket/init",
+        "Host": "kyfw.12306.cn",
+        "re_try": 10,
+        "re_time": 0.01,
+        "s_time": 0.01,
+        "is_logger": True,
+        "is_json": True,
+    },
+    "confirmHB": {  # 设置订单信息
+        "req_url": "/otn/afterNate/confirmHB",
+        "req_type": "post",
+        "Referer": "https://kyfw.12306.cn/otn/leftTicket/init",
+        "Host": "kyfw.12306.cn",
+        "re_try": 10,
+        "re_time": 0.01,
+        "s_time": 0.01,
+        "is_logger": True,
+        "is_json": True,
+    },
+    "queryQueue": {  # 排队
+        "req_url": "/otn/afterNate/queryQueue",
+        "req_type": "post",
+        "Referer": "https://kyfw.12306.cn/otn/leftTicket/init",
+        "Host": "kyfw.12306.cn",
+        "re_try": 10,
+        "re_time": 0.01,
+        "s_time": 0.01,
+        "is_logger": True,
+        "is_json": True,
+    },
+    "passengerInitApi": {  # 排队
+        "req_url": "/otn/afterNate/passengerInitApi",
+        "req_type": "post",
+        "Referer": "https://kyfw.12306.cn/otn/leftTicket/init",
+        "Host": "kyfw.12306.cn",
+        "re_try": 10,
+        "re_time": 0.01,
+        "s_time": 0.01,
+        "is_logger": True,
+        "is_json": True,
+    },
+
+    "autoVerifyImage": {  # 云打码接口
+        "req_url": TickerConfig.REQ_URL,
+        "req_type": "post",
+        "Referer": "",
+        "Host": TickerConfig.HOST,
+        "re_try": 6,
+        "re_time": 10,
+        "s_time": 0.001,
+        "is_logger": True,
+        "is_json": True,
+        "httpType": TickerConfig.HTTP_TYPE
+    },
 }
